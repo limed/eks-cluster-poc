@@ -39,13 +39,25 @@ locals {
     }
   }
 
+  flux_settings = {
+    "git.url"  = "git@github.com:limed/eks-cluster-poc"
+    "git.path" = "k8s"
+  }
+
+  flux_helm_operator_settings = {
+    "git.ssh.secretName" = "flux-git-deploy"
+  }
+
 }
 
 module "eks" {
-  source          = "github.com/mozilla-it/terraform-modules//aws/eks?ref=master"
-  cluster_name    = local.cluster_name
-  cluster_version = local.cluster_version
-  vpc_id          = data.terraform_remote_state.vpc.outputs.vpc_id
-  cluster_subnets = data.terraform_remote_state.vpc.outputs.private_subnets
-  node_groups     = local.node_groups
+  source                      = "github.com/mozilla-it/terraform-modules//aws/eks?ref=master"
+  cluster_name                = local.cluster_name
+  cluster_version             = local.cluster_version
+  vpc_id                      = data.terraform_remote_state.vpc.outputs.vpc_id
+  cluster_subnets             = data.terraform_remote_state.vpc.outputs.private_subnets
+  node_groups                 = local.node_groups
+  enable_flux                 = true
+  flux_settings               = local.flux_settings
+  flux_helm_operator_settings = local.flux_helm_operator_settings
 }
