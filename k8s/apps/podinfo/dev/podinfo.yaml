@@ -3,7 +3,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: podinfo-dev
-  namespace: dev
+  namespace: podinfo-dev
   annotations:
     fluxcd.io/automated: "true"
     filter.fluxcd.io/chart-image: glob:master-*
