@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: limed/podinfo
-      tag: master-hdtwcel9
+      tag: master-ahqutqp2
     replicaCount: 1
     hpa:
       enabled: false
