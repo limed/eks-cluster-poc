@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/automated: "true"
     filter.fluxcd.io/chart-image: glob:stg-*
 spec:
-  releaseName: podinfo-rc
+  releaseName: podinfo-stage
   chart:
     git: git@github.com:fluxcd/helm-operator-get-started
     path: charts/podinfo
