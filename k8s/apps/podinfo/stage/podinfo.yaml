@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: limed/podinfo
-      tag: stg-9ij63o4c
+      tag: stg-pe5g7gci
     replicaCount: 2
     hpa:
       enabled: true
