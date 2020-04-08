@@ -1,0 +1,25 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: travis-test
+  namespace: travis-test-stage
+  annotations:
+    fluxcd.io/automated: "true"
+    filter.fluxcd.io/chart-image: glob:master-*
+spec:
+  releaseName: travis-test-stage
+  chart:
+    git: git@github.com:limed/travis-test
+    path: charts/travis-test
+    ref: master
+  values:
+    image:
+      repository: limed/travis-test
+      tag: master-c4ab2373
+    replicaCount: 2
+    hpa:
+      enabled: true
+      maxReplicas: 10
+      cpu: 50
+      memory: 256Mi
