@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: limed/travis-test
-      tag: master-c4ab2373
+      tag: master-552a7138
     replicaCount: 2
     hpa:
       enabled: true
