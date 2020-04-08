@@ -20,6 +20,6 @@ spec:
     replicaCount: 2
     hpa:
       enabled: true
-      maxReplicas: 10
+      maxReplicas: 1
       cpu: 50
       memory: 256Mi
